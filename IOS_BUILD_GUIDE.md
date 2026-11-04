@@ -71,9 +71,10 @@ The generated simulator app is under `build/ios/iphonesimulator/Runner.app`.
 
 1. Connect and trust the iPhone, enable Developer Mode if prompted, and make sure it runs iOS 15 or later.
 2. Open `ios/Runner.xcworkspace` in Xcode.
-3. Select the **Runner** target, then **Signing & Capabilities**.
-4. Choose your Apple Developer team and use a bundle identifier that is unique and belongs to your team. The current identifier is `live.iqfareez.waktusolatmalaysia`; change it if you do not own that identifier.
-5. Select the connected iPhone as the run destination and press **Run**.
+3. Register the App Group `group.live.iqfareez.waktusolatmalaysia` for your Apple Developer team and enable it for both the **Runner** and **SolatWidgetExtension** targets.
+4. Select each target's **Signing & Capabilities** settings and choose your Apple Developer team. Use bundle identifiers that are unique and belong to your team. The current app identifier is `live.iqfareez.waktusolatmalaysia`.
+5. Select the connected iPhone as the run destination and press **Run** on the Runner scheme.
+6. On the iPhone, long-press the Home Screen, tap **Edit > Add Widget**, then add **Prayer Times**. Both horizontal and vertical widget variants are available.
 
 Alternatively, list devices with `flutter devices` and launch using:
 
@@ -81,7 +82,7 @@ Alternatively, list devices with `flutter devices` and launch using:
 flutter run -d <iphone-device-id>
 ```
 
-If you change the bundle identifier, make sure Firebase's iOS app configuration (`ios/Runner/GoogleService-Info.plist` and `lib/firebase_options.dart`) and any Apple capabilities are configured for the new identifier.
+If you change the bundle identifier, update the widget extension identifier and App Group consistently in the Xcode project, entitlements, and Flutter startup configuration. Also update Firebase's iOS app configuration (`ios/Runner/GoogleService-Info.plist` and `lib/firebase_options.dart`).
 
 ## Create a release build or archive
 

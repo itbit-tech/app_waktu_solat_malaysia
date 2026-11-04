@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:home_widget/home_widget.dart';
 import 'package:in_app_review/in_app_review.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:timezone/data/latest_all.dart' as tz;
@@ -23,9 +24,14 @@ import 'app_launch_counter.dart';
 
 class StartupRoutine {
   static Future<void> initialize() async {
-    await Firebase.initializeApp(
-      options: DefaultFirebaseOptions.currentPlatform,
-    );
+    if (Platform.isIOS) {
+      final appGroupConfigured = await HomeWidget.setAppGroupId(kIOSWidgetAppGroup);
+      if (appGroupConfigured != true) {
+        throw StateError('Unable to configure the iOS widget App Group.');
+      }
+    }
+
+    await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
     MobileAds.instance.initialize();
 
     // Pass all uncaught errors from the framework to Crashlytics.
@@ -98,16 +104,13 @@ class StartupRoutine {
   static void _registerLicenses() {
     // add font licenses
     LicenseRegistry.addLicense(() async* {
-      final manropeLicense =
-          await rootBundle.loadString('fonts/Manrope/OFL.txt');
+      final manropeLicense = await rootBundle.loadString('fonts/Manrope/OFL.txt');
       yield LicenseEntryWithLineBreaks(['Manrope'], manropeLicense);
 
-      final archivoLicense =
-          await rootBundle.loadString('fonts/Archivo/OFL.txt');
+      final archivoLicense = await rootBundle.loadString('fonts/Archivo/OFL.txt');
       yield LicenseEntryWithLineBreaks(['Archivo'], archivoLicense);
 
-      final balooLicense =
-          await rootBundle.loadString('fonts/Baloo_Tamma_2/OFL.txt');
+      final balooLicense = await rootBundle.loadString('fonts/Baloo_Tamma_2/OFL.txt');
       yield LicenseEntryWithLineBreaks(['Baloo Tamma 2'], balooLicense);
     });
   }

@@ -14,6 +14,7 @@ const kShowNotifPrompt = "notifPrompt";
 const kNotificationType = "notiftype";
 const kHasShowQiblaWarning = "storedqiblawarn";
 const kAppLanguage = "storedAppLang";
+const kIOSWidgetAppGroup = "group.live.iqfareez.waktusolatmalaysia";
 const kAppTheme = "theme";
 const kTimetableHijri = "timetableHijri";
 const kTimetableHijriStyle = "timetableHijriStyle";

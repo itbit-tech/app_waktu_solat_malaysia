@@ -313,8 +313,8 @@ The repository already includes `ios/Runner`, Firebase iOS configuration, and Co
 
 ### Widgets, shortcuts, ads, Firebase, and app review
 
-- Android home-screen widget names do not create an iOS widget. A WidgetKit extension, App Group storage, and an iOS-compatible data update strategy are needed if prayer widgets are in scope.
-- Until that iOS widget integration is implemented, the app skips home-widget data updates on iOS so widget storage cannot fail the prayer-time load.
+- iOS includes WidgetKit horizontal and vertical prayer-time widgets backed by the `group.live.iqfareez.waktusolatmalaysia` App Group. The app writes monthly prayer data and refreshes both widget timelines after fetching prayer times. WidgetKit refresh timing is best-effort; exact prayer notifications remain separate from widget updates.
+- The App Group must be enabled for both the Runner and `SolatWidgetExtension` identifiers in the Apple Developer account and included in both provisioning profiles for signed device builds.
 - Reimplement or omit the current quick actions after checking which user-visible shortcuts should exist on iOS.
 - The iOS Runner has a Google Mobile Ads application identifier, but the banner code uses one hard-coded ad-unit ID. Confirm it is an iOS ad unit and that consent/privacy configuration and App Store disclosures are correct.
 - Firebase iOS configuration exists in `ios/Runner/GoogleService-Info.plist` and `lib/firebase_options.dart`; verify bundle ID, signing, Crashlytics symbol upload, Analytics configuration, and release behavior in the target Firebase project.
@@ -333,6 +333,7 @@ The repository already includes `ios/Runner`, Firebase iOS configuration, and Co
 - [ ] First-run defaults, language/theme choice, and persisted settings match current behavior.
 - [ ] Manual zone selection works offline when a valid zone catalogue is cached.
 - [ ] GPS lookup handles all permission and failure states and selects the correct JAKIM zone.
+- [ ] iOS home-screen widgets show the selected zone's current prayer times and update after a zone or prayer-data refresh.
 - [ ] Today's and monthly prayer responses parse correctly, including epoch seconds and Hijri dates.
 - [ ] Cache behavior does not show stale data across zones or months; refresh and error states are explicit.
 - [ ] Prayer-time display honors locale, 12/24-hour preference, optional rows, current-prayer highlight, and text size.
