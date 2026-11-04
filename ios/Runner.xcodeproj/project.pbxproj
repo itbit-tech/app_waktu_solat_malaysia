@@ -103,18 +103,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A1000000000000000000000B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EB367D1C4B3E35B07EC423E7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				0DB4BDB83FC6A8061D47F1B7 /* Pods_RunnerTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A1000000000000000000000B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,16 +127,6 @@
 				331C807B294A618700263BE5 /* RunnerTests.swift */,
 			);
 			path = RunnerTests;
-			sourceTree = "<group>";
-		};
-		A10000000000000000000007 /* SolatWidgetExtension */ = {
-			isa = PBXGroup;
-			children = (
-				A10000000000000000000003 /* SolatWidgetExtension.swift */,
-				A10000000000000000000005 /* SolatWidgetExtension.entitlements */,
-				A10000000000000000000013 /* Info.plist */,
-			);
-			path = SolatWidgetExtension;
 			sourceTree = "<group>";
 		};
 		84EAFD75955DE585E3509585 /* Frameworks */ = {
@@ -199,6 +189,16 @@
 			path = Runner;
 			sourceTree = "<group>";
 		};
+		A10000000000000000000007 /* SolatWidgetExtension */ = {
+			isa = PBXGroup;
+			children = (
+				A10000000000000000000003 /* SolatWidgetExtension.swift */,
+				A10000000000000000000005 /* SolatWidgetExtension.entitlements */,
+				A10000000000000000000013 /* Info.plist */,
+			);
+			path = SolatWidgetExtension;
+			sourceTree = "<group>";
+		};
 		AF2655CD168E63EB7176976A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -209,7 +209,6 @@
 				0F80D11768892946CD1547B6 /* Pods-RunnerTests.release.xcconfig */,
 				A48718F8D0A7DD26E6F38B33 /* Pods-RunnerTests.profile.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -296,7 +295,7 @@
 						CreatedOnToolsVersion = 7.3.1;
 						LastSwiftMigration = 1100;
 						SystemCapabilities = {
-							"com.apple.ApplicationGroups.iOS" = {
+							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
 							};
 						};
@@ -304,7 +303,7 @@
 					A10000000000000000000008 = {
 						CreatedOnToolsVersion = 15.0;
 						SystemCapabilities = {
-							"com.apple.ApplicationGroups.iOS" = {
+							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
 							};
 						};
