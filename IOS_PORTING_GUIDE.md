@@ -290,8 +290,7 @@ The repository already includes `ios/Runner`, Firebase iOS configuration, and Co
 
 ### Location permission and usage description
 
-- `ios/Runner/Info.plist` currently has no `NSLocationWhenInUseUsageDescription` entry. Add a clear purpose string before requesting location through Core Location or a Flutter location plugin.
-- Request foreground location only when the user invokes GPS zone selection or Qibla. Preserve manual zone selection when permission is denied.
+- `ios/Runner/Info.plist` includes `NSLocationWhenInUseUsageDescription` for the existing foreground location flows. The app requests location only when the user invokes GPS zone selection or Qibla; it does not need background or Always location access. Preserve manual zone selection when permission is denied.
 - Explain the distinction between device location used locally for zone/Qibla and the optional feedback GPS field.
 - Test denied, restricted, and location-services-off states on real iOS devices as well as simulators.
 

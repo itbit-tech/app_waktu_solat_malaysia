@@ -28,6 +28,8 @@
 	<string>ca-app-pub-1896379146653594~4724495912</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Your location is used only when you choose GPS zone selection or open the Qibla compass, to find your prayer zone and show your direction to the Kaaba.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
